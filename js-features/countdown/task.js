@@ -1,14 +1,14 @@
-const timer = document.getElementById('timer');
+// const timer = document.getElementById('timer');
 
-function countDown() {
-	timer.textContent --;
-	if (timer.textContent == 0) {
-		alert('Вы победили в конкурсе');
-		clearInterval(counter);
-	}
-}
+// function countDown() {
+// 	timer.textContent --;
+// 	if (timer.textContent == 0) {
+// 		alert('Вы победили в конкурсе');
+// 		clearInterval(counter);
+// 	}
+// }
 
-let counter = setInterval(countDown, 1000);
+// let counter = setInterval(countDown, 1000);
 
 ////
 // const status = document.getElementById('status');
@@ -28,3 +28,12 @@ let counter = setInterval(countDown, 1000);
 // // const nextYear = new Date(`January 01 ${currentYear + 1}`);
 
 // const currentTime = new Date();
+
+const status = document.getElementById('status');
+
+status.innerHTML = 'До окончания конкурса осталось: ' + '<span id="hour">04<span>:</span></span><span id="min">25<span>:</span></span><span id="second">19</span>';
+
+const hour = document.getElementById('hour');
+const min = document.getElementById('min');
+const second = document.getElementById('second');
+
