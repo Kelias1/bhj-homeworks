@@ -14,6 +14,7 @@ function taskAdd(event) {
 <a href="#" class="task__remove">&times;</a>`;
 	list.appendChild(element);
 	input.value = '';
+	saveTask();
 }
 
 function taskRemove(event) {
@@ -22,10 +23,9 @@ function taskRemove(event) {
 	if (removeX.classList.contains('task__remove')) {
 		let remove = removeX.closest('.task');
 		remove.remove();
+		saveTask();
 	}
 }
-
-// РАБОТАЕТ НО НЕ ПРАВИЛЬНО:
 
 function saveTask() {
 	localStorage.setItem('tasks', list.innerHTML);
