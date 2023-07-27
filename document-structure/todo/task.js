@@ -7,14 +7,13 @@ list.addEventListener('click', taskRemove);
 
 function taskAdd(event) {
 	event.preventDefault();
-	const taskTitle = input.value;
 	const element = document.createElement('div');
 	element.className = 'task';
 	element.innerHTML = `<div class="task__title">${input.value}</div>
 <a href="#" class="task__remove">&times;</a>`;
 	list.appendChild(element);
 	input.value = '';
-	saveTask();
+	// saveTask();
 }
 
 function taskRemove(event) {
@@ -22,15 +21,28 @@ function taskRemove(event) {
 	const removeX = event.target;
 	if (removeX.classList.contains('task__remove')) {
 		let remove = removeX.closest('.task');
+		// input.value.trim() !== '';
 		remove.remove();
-		saveTask();
+		// saveTask();
 	}
 }
 
-function saveTask() {
-	localStorage.setItem('tasks', list.innerHTML);
-}
 
-if (localStorage.getItem('tasks')) {
-	list.innerHTML = localStorage.getItem('tasks');
-};
+
+form.addEventListener('submit', function(event) {
+	event.preventDefault();
+	// const taskTitle = input.value.trim();
+	if(input.value.trim() !== '') {
+		taskAdd();
+	}
+});
+
+// localStorage:
+
+// function saveTask() {
+// 	localStorage.setItem('tasks', list.innerHTML);
+// }
+
+// if (localStorage.getItem('tasks')) {
+// 	list.innerHTML = localStorage.getItem('tasks');
+// };
