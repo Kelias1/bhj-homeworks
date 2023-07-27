@@ -11,7 +11,13 @@ function clickTip(event) {
 	newDiv.style.top = `${event.target.getBoundingClientRect().bottom}px`;
 	newDiv.style.left = `${event.target.getBoundingClientRect().left}px`;
 
-	newDiv.classList.add('tooltip_active');
+	if (newDiv.classList.contains('tooltip_active')) {
+		newDiv.classList.remove('tooltip_active');
+	} else {
+		newDiv.classList.add('tooltip_active');
+	}
+
+	// newDiv.classList.add('tooltip_active');
 
 	window.addEventListener('scroll', hideNewDiv);
 }
@@ -23,3 +29,4 @@ function hideNewDiv() {
 tooltips.forEach((element) => {
 	element.addEventListener('click', clickTip);
 });
+
