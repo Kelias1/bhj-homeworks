@@ -46,7 +46,7 @@ product.forEach((element) => {
 	minus.addEventListener('click', () => {
 		const input = element.querySelector('.product__quantity-value');
 		let quantity = parseInt(input.textContent);
-		if (quantity > 0) {
+		if (quantity > 1) {
 			quantity --;
 			input.textContent= quantity;
 		}
